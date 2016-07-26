@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RibbenTextView">
+        <attr name="rotate_degree" format="float" />
+        <attr name="text" format="string" />
+        <attr name="text_size" format="float" />
+        <attr name="text_color" format="color" />
+        <attr name="ribben_color" format="color" />
+    </declare-styleable>
+</resources>
