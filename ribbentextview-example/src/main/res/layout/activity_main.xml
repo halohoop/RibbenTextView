@@ -8,15 +8,17 @@
     tools:context="com.halohoop.ribbentextview_example.MainActivity">
 
     <com.halohoop.ribbentextview.RibbenTextView
+        android:id="@+id/rtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffff0000"
         android:padding="10dp"
         app:ribben_color="#ff000000"
-        app:rotate_degree="60"
+        app:rotate_degree="30"
         app:text="Hello World2!"
-        app:text_size="16"
+        app:text_size="30"
         app:text_color="#ffffffff"
+        app:text_padding="40"
         app:layout_constraintLeft_toLeftOf="@+id/activity_main"
         app:layout_constraintTop_toTopOf="@+id/activity_main"
         app:layout_constraintRight_toRightOf="@+id/activity_main"
