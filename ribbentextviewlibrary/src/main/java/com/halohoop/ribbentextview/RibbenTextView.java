@@ -138,7 +138,7 @@ public class RibbenTextView extends View {
         canvas.rotate(mRotateDegrees, 0, 0);
         //需要把padding值给加上
         canvas.translate(transDistance + mTextPaddingLeftAndRight,
-                -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 2);//旋转之后就是斜着移动了
+                -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);//旋转之后就是斜着移动了
         canvas.drawText(mText, 0, 0, mTextPaint);
         canvas.restore();
     }
@@ -179,6 +179,13 @@ public class RibbenTextView extends View {
 
     public void setTextColor(int color) {
         this.mTextColor = color;
+        mTextPaint.setColor(mTextColor);
+        invalidateIncludeReMeasureLayout();
+    }
+
+    public void setRibbenColor(int color) {
+        this.mRibbenColor = color;
+        mRibbenPaint.setColor(mRibbenColor);
         invalidateIncludeReMeasureLayout();
     }
 
