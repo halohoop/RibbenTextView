@@ -15,7 +15,7 @@
         android:padding="10dp"
         app:ribben_color="#ff000000"
         app:rotate_degree="30"
-        app:text="Hello World2!"
+        app:text="newer treats!"
         app:text_size="30"
         app:text_color="#ffffffff"
         app:text_padding="40"

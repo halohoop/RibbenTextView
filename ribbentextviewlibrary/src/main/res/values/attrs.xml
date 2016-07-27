@@ -2,10 +2,15 @@
 <resources>
     <declare-styleable name="RibbenTextView">
         <attr name="rotate_degree" format="float" />
+        <attr name="rotate_position">
+            <flag name="right_top" value="0" />
+            <flag name="left_top" value="1" />
+        </attr>
         <attr name="text" format="string" />
         <attr name="text_size" format="float" />
         <attr name="text_color" format="color" />
-        <attr name="text_padding" format="integer" />
+        <attr name="text_padding_top_and_bottom" format="integer" />
+        <attr name="text_padding_left_and_right" format="integer" />
         <attr name="ribben_color" format="color" />
     </declare-styleable>
 </resources>

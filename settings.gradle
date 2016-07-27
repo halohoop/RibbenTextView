@@ -1,1 +1,1 @@
-include ':ribbentextviewlibrary', ':ribbentextview-example'
+include ':ribbentextviewlibrary', ':ribbentextview-example', ':ribbentextview-example2'
