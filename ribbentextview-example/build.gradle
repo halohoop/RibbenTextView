@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
     defaultConfig {
@@ -28,7 +28,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
     testCompile 'junit:junit:4.12'
     compile project(':ribbentextviewlibrary')
 }
