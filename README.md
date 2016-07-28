@@ -3,16 +3,9 @@
 ![Markdown](http://i2.piimg.com/8359/35970be4a38edf4c.jpg)
 ![Markdown](http://i2.piimg.com/8359/47c127b80a368964.jpg)
 
-#Usage
-    <?xml version="1.0" encoding="utf-8"?>
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:app="http://schemas.android.com/apk/res-auto"
-    	xmlns:tools="http://schemas.android.com/tools"
-    	android:id="@+id/activity_main"
-    	android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:background="#ffffff"
-    	tools:context="com.halohoop.ribbentextview_example.MainActivity">
+#Usage 
+
+**compile 'com.halohoop:ribbentextview:1.0.0'**
 
     <com.halohoop.ribbentextview.RibbenTextView
         android:id="@+id/rtv"
