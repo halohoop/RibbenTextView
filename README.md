@@ -79,6 +79,10 @@
   
 # Changelog
 
+### Version: 1.0.1
+
+  * different position between left_top,left_bottom,right_top and right_bottom;
+
 ### Version: 1.0
 
   * Initial Build
