@@ -5,7 +5,7 @@
 
 #Usage 
 
-**compile 'com.halohoop:ribbentextview:1.0.0'**
+**compile 'com.halohoop:ribbentextview:1.0.1'**
 
     <com.halohoop.ribbentextview.RibbenTextView
         android:id="@+id/rtv"
@@ -19,6 +19,17 @@
         app:text_padding_left_and_right="40"
         app:text_padding_top_and_bottom="40"
         app:text_size="30" />
+
+    <com.halohoop.ribbentextview.RibbenTextView
+        android:id="@+id/rtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        app:rotate_position="right_bottom"
+        app:text="新手专享"
+        app:text_padding_left_and_right="0"
+        app:text_padding_top_and_bottom="2"
+        app:text_size="9"></com.halohoop.ribbentextview.RibbenTextView>
 
 * and you can update text color, text size and ribben color in code;
 <pre><code>
