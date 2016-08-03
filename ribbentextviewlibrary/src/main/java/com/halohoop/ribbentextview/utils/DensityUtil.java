@@ -7,17 +7,17 @@ import android.content.Context;
  */
 public class DensityUtil {
     /**
-     * 汉字
+     *
      */
     public static final int CHINESE = 0x000001;
 
     /**
-     * 数字或字符
+     *
      */
     public static final int NUMBER_OR_CHARACTER = 0x000002;
 
     /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     *
      *
      * @param context
      * @param dpValue
@@ -29,7 +29,7 @@ public class DensityUtil {
     }
 
     /**
-     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     *
      *
      * @param context
      * @param pxValue
@@ -41,7 +41,7 @@ public class DensityUtil {
     }
 
     /**
-     * sp转成px
+     *
      *
      * @param spValue
      * @param type
@@ -60,7 +60,7 @@ public class DensityUtil {
     }
 
     /**
-     * 将px值转换为sp值，保证文字大小不变
+     *
      *
      * @param pxValue
      * @param context

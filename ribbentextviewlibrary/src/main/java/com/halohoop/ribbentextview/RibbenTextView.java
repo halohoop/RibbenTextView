@@ -31,7 +31,7 @@ public class RibbenTextView extends View {
     private float mTextSize = 12;
     private int mTextPaddingTopAndBottom = 2;
     private int mTextPaddingLeftAndRight = 2;
-    private int mRotatePosition = 0;
+    private int mRotatePosition = 1;
 
     public RibbenTextView(Context context) {
         this(context, null);
@@ -44,7 +44,7 @@ public class RibbenTextView extends View {
     public RibbenTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
-        //设置背景为透明
+        //bg to transparent
         setBackgroundColor(android.graphics.Color.parseColor("#00000000"));
         TypedArray attributes = context.obtainStyledAttributes(attrs,
                 R.styleable.RibbenTextView);
@@ -80,10 +80,8 @@ public class RibbenTextView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //TODO 根据文字的宽度高度 以及角度 计算出宽高
         int textWidthWithPadding = mTextRectWidhPadding.width;
         int textHeightWithPadding = mTextRectWidhPadding.height;
-        //计算出宽度
         double tan = Math.tan(mRotateDegrees * Math.PI / 180);
         double v = textHeightWithPadding / tan;
         double sqrt = Math.sqrt(textHeightWithPadding * textHeightWithPadding + v * v);
@@ -112,35 +110,98 @@ public class RibbenTextView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.save();
-        //draw ribben
-        Path mPath = new Path();
-        //对角线↓
-        mPath.moveTo(0, 0);
-        mPath.lineTo(getWidth(), getHeight());
-        //对角线↑
         double cos = Math.cos(mRotateDegrees * Math.PI / 180);
-        int rightBottomDistance = (int) Math.round(mTextRectWidhPadding.height / cos);
-        mPath.lineTo(getWidth(), getHeight() - rightBottomDistance);
         double sin = Math.sin(mRotateDegrees * Math.PI / 180);
-        int topLeftDistance = (int) Math.round(mTextRectWidhPadding.height / sin);
-        mPath.lineTo(topLeftDistance, 0);
-        mPath.close();
-        canvas.drawPath(mPath, mRibbenPaint);
-        canvas.restore();
-        //------------------------
-        //draw text
-//        int height = mTextRect.height();
-        canvas.save();
-        int height = mTextRectWidhPadding.height;
         double tan = Math.tan(mRotateDegrees * Math.PI / 180);
-        int transDistance = (int) Math.round(height / tan);
-        canvas.rotate(mRotateDegrees, 0, 0);
-        //需要把padding值给加上
-        canvas.translate(transDistance + mTextPaddingLeftAndRight,
-                -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);//旋转之后就是斜着移动了
-        canvas.drawText(mText, 0, 0, mTextPaint);
-        canvas.restore();
+        if (mRotatePosition == 1) {//right top
+            canvas.save();
+            //draw ribben
+            Path mPath = new Path();
+            mPath.moveTo(0, 0);
+            mPath.lineTo(getWidth(), getHeight());
+            int rightBottomDistance = (int) Math.round(mTextRectWidhPadding.height / cos);
+            mPath.lineTo(getWidth(), getHeight() - rightBottomDistance);
+            int topLeftDistance = (int) Math.round(mTextRectWidhPadding.height / sin);
+            mPath.lineTo(topLeftDistance, 0);
+            mPath.close();
+            canvas.drawPath(mPath, mRibbenPaint);
+            canvas.restore();
+            //------------------------
+            canvas.save();
+            int height = mTextRectWidhPadding.height;
+            int transDistance = (int) Math.round(height / tan);
+            canvas.rotate(mRotateDegrees, 0, 0);
+            canvas.translate(transDistance + mTextPaddingLeftAndRight,
+                    -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);
+            canvas.drawText(mText, 0, 0, mTextPaint);
+            canvas.restore();
+        } else if (mRotatePosition == 0) {//left top
+            canvas.save();
+            //draw ribben
+            Path mPath = new Path();
+            int j = (int) Math.round(cos * mTextRectWidhPadding.width);
+            int k = (int) Math.round(sin * mTextRectWidhPadding.width);
+            mPath.moveTo(j, 0);
+            mPath.lineTo(getWidth(), 0);
+            mPath.lineTo(0, getHeight());
+            mPath.lineTo(0, k);
+            mPath.close();
+            canvas.drawPath(mPath, mRibbenPaint);
+            canvas.restore();
+            //---------
+            canvas.save();
+            canvas.translate(0, getHeight());
+            canvas.rotate(-mRotateDegrees, 0, 0);
+            int transDistance = (int) Math.round(tan * mTextRectWidhPadding.height);
+            canvas.translate(transDistance + mTextPaddingLeftAndRight,
+                    -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);
+            canvas.drawText(mText, 0, 0, mTextPaint);
+            canvas.restore();
+        } else if (mRotatePosition == 2) {//right bottom
+            canvas.save();
+            //draw ribben
+            Path mPath = new Path();
+            int j = (int) Math.round(mTextRectWidhPadding.height / sin);
+            int k = (int) Math.round(mTextRectWidhPadding.height / cos);
+            mPath.moveTo(getWidth(), 0);
+            mPath.lineTo(getWidth(), k);
+            mPath.lineTo(j, getHeight());
+            mPath.lineTo(0, getHeight());
+            mPath.close();
+            canvas.drawPath(mPath, mRibbenPaint);
+            canvas.restore();
+            //---------
+            canvas.save();
+            canvas.translate(0, getHeight() + k);
+            canvas.rotate(-mRotateDegrees, 0, 0);
+            int transDistance = (int) Math.round(j / cos);
+            canvas.translate(transDistance + mTextPaddingLeftAndRight,
+                    -mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);
+            canvas.drawText(mText, 0, 0, mTextPaint);
+            canvas.restore();
+        } else if (mRotatePosition == 3) {//left bottom
+            canvas.save();
+            //draw ribben
+            Path mPath = new Path();
+            int j = (int) Math.round(cos * mTextRectWidhPadding.width);
+            int k = (int) Math.round(mTextRectWidhPadding.height / cos);
+            mPath.moveTo(0, 0);
+            mPath.lineTo(getWidth(), getHeight());
+            mPath.lineTo(j, getHeight());
+            mPath.lineTo(0, k);
+            mPath.close();
+            canvas.drawPath(mPath, mRibbenPaint);
+            canvas.restore();
+            //---------
+            canvas.save();
+            canvas.rotate(mRotateDegrees, 0, 0);
+            int transDistance = (int) Math.round(tan * mTextRectWidhPadding.height);
+            canvas.translate(transDistance + mTextPaddingLeftAndRight,
+                    mTextRectWidhPadding.height
+                            - mTextPaddingTopAndBottom - mTextPaddingTopAndBottom / 4 - 1);
+            canvas.drawText(mText, 0, 0, mTextPaint);
+            canvas.restore();
+        }
     }
 
     private void getTextHeight() {

@@ -9,11 +9,11 @@
         android:id="@+id/rtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        app:rotate_position="left_top"
+        android:layout_gravity="right|bottom"
+        app:rotate_position="right_bottom"
         app:text="新手专享"
-        app:text_padding_left_and_right="3"
-        app:text_padding_top_and_bottom="3"
+        app:text_padding_left_and_right="0"
+        app:text_padding_top_and_bottom="2"
         app:text_size="9"></com.halohoop.ribbentextview.RibbenTextView>
 
     <TextView

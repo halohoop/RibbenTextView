@@ -3,8 +3,10 @@
     <declare-styleable name="RibbenTextView">
         <attr name="rotate_degree" format="float" />
         <attr name="rotate_position">
-            <flag name="right_top" value="0" />
-            <flag name="left_top" value="1" />
+            <flag name="left_top" value="0" />
+            <flag name="right_top" value="1" />
+            <flag name="right_bottom" value="2" />
+            <flag name="left_bottom" value="3" />
         </attr>
         <attr name="text" format="string" />
         <attr name="text_size" format="float" />
