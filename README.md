@@ -1,7 +1,8 @@
 # RibbenTextView
 
-![Markdown](http://i2.piimg.com/8359/35970be4a38edf4c.jpg)
-![Markdown](http://i2.piimg.com/8359/47c127b80a368964.jpg)
+![Demo1](./20170616121220.png)
+
+![Demo0](./20170616121217.jpg)
 
 #Usage 
 
@@ -65,7 +66,6 @@
     rtv.setRibbenColor(ribbenColor);
 </code></pre>
 # Customization
-![Markdown](http://i2.piimg.com/8359/fa599ea48f22288e.png)
 
 * ① edit by custom the attr named "**text\_padding\_top\_and\_bottom**";
 * ② edit by custom the attr named "**text\_padding\_left\_and\_right**";

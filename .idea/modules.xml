@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RibbenTextView.iml" filepath="$PROJECT_DIR$/RibbenTextView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbentextview-example/ribbentextview-example.iml" filepath="$PROJECT_DIR$/ribbentextview-example/ribbentextview-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbentextview-example2/ribbentextview-example2.iml" filepath="$PROJECT_DIR$/ribbentextview-example2/ribbentextview-example2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbentextviewlibrary/ribbentextviewlibrary.iml" filepath="$PROJECT_DIR$/ribbentextviewlibrary/ribbentextviewlibrary.iml" />
+    </modules>
+  </component>
+</project>
